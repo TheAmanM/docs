@@ -8,7 +8,7 @@
       "description": "Aman Meherally is a Full Stack Developer with a passion for building software that works. Explore my portfolio to see my projects and experiences.",
       "author": "Aman Meherally",
 
-      "og-image": "/images/og-image.png",
+      "og-image": "https://amanmeherally.com/images/og-image.png",
       "og:title": "Aman Meherallu",
       "og:type": "website",
       "og:url": "https://amanmeherally.com",
@@ -19,7 +19,7 @@
       "twitter:card": "summary_large_image",
       "twitter:title": "Aman Meherallu",
       "twitter:description": "Building software that works.",
-      "twitter:image": "/images/og-image.png",
+      "twitter:image": "https://amanmeherally.com/images/og-image.png",
       "twitter:url": "https://amanmeherally.com"
     }
   },
