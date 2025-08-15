@@ -22,8 +22,12 @@
   "navigation": {
     "groups": [
       {
-        "group": "PORTFOLIO",
-        "pages": ["stash/quickstart", "stash/index", "stash/development"]
+        "group": "Get Started",
+        "pages": ["index"]
+      },
+      {
+        "group": "Routes",
+        "pages": ["inspiration", "experiences", "blog", "contact"]
       }
     ],
 
@@ -31,7 +35,7 @@
       "anchors": [
         {
           "anchor": "Resume",
-          "href": "https://amanmeherally.com/resume/Aman Meherally - Full Stack Developer.pdf",
+          "href": "https://docs.amanmeherally.com/resume/Aman Meherally - Full Stack Developer.pdf",
           "icon": "file"
         },
         {
