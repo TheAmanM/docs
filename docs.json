@@ -2,6 +2,27 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "Aman Meherally",
+  "seo": {
+    "metatags": {
+      "keywords": "Aman Meherally, Full Stack Developer, Web Development, Software Engineer, Portfolio",
+      "description": "Aman Meherally is a Full Stack Developer with a passion for building software that works. Explore my portfolio to see my projects and experiences.",
+      "author": "Aman Meherally",
+
+      "og-image": "/images/og-image.png",
+      "og:title": "Aman Meherallu",
+      "og:type": "website",
+      "og:url": "https://amanmeherally.com",
+      "og:description": "Building software that works.",
+      "og:site_name": "Aman Meherally",
+      "og:locale": "en_US",
+
+      "twitter:card": "summary_large_image",
+      "twitter:title": "Aman Meherallu",
+      "twitter:description": "Building software that works.",
+      "twitter:image": "/images/og-image.png",
+      "twitter:url": "https://amanmeherally.com"
+    }
+  },
   "colors": {
     "primary": "#555555",
     "light": "#BFBFBF",
