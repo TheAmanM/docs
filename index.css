@@ -8,7 +8,9 @@ footer {
   display: none !important;
 }
 
-#navbar > div:nth-child(2) > div > div > div > div > div:nth-child(2) {
+#navbar > div:nth-child(2) > div > div > div > div > div:nth-child(2),
+#navbar > div:nth-child(2) > div > div > div > div > div:nth-child(3),
+#navbar > div:nth-child(2) > div > div > div > div > div:nth-child(4) {
   /* Removing the search bar */
   display: none !important;
 }
