@@ -1,0 +1,8 @@
+footer {
+  display: none !important;
+}
+
+#navbar > div:nth-child(2) > div > div > div > div > div:nth-child(2) {
+  /* Removing the search bar */
+  display: none !important;
+}
