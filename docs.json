@@ -23,7 +23,7 @@
     "groups": [
       {
         "group": "PORTFOLIO",
-        "pages": ["quickstart", "index", "getting-started/first-docs"]
+        "pages": ["stash/quickstart", "stash/index", "stash/development"]
       }
     ],
 
@@ -50,17 +50,5 @@
   "logo": {
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg"
-  },
-  "contextual": {
-    "options": [
-      "copy",
-      "view",
-      "chatgpt",
-      "claude",
-      "perplexity",
-      "mcp",
-      "cursor",
-      "vscode"
-    ]
   }
 }
