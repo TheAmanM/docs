@@ -53,7 +53,7 @@
           {
             "group": "Experiences",
             "icon": "briefcase",
-            "pages": ["experiences/kkc-classroom"]
+            "pages": ["experiences", "experiences/kkc-classroom"]
           },
           "blog",
           "contact"
