@@ -23,6 +23,12 @@
       "twitter:url": "https://amanmeherally.com"
     }
   },
+  "integrations": {
+    "posthog": {
+      "apiKey": "phc_SBqUmXcK0Ra7Q0pzQuvpZWRrhncvoPCjoEhPg5Yxo1v",
+      "apiHost": "https://amanmeherally.com/ingest"
+    }
+  },
   "colors": {
     "primary": "#555555",
     "light": "#BFBFBF",
