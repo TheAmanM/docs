@@ -1,0 +1,56 @@
+---
+title: "KKC Classroom"
+description: "Full Stack Developer (May 2025 -- Present)"
+icon: "graduation-cap"
+---
+
+<img
+  src="/experiences/assets/kkc.png"
+  alt="The KKC Classroom banner"
+  className="rounded-xl"
+/>
+
+## The Problem
+
+Finance students across Canada struggle to find direction in their career paths. They often lack access to mentorship and resources that can help them begin their careers in cosulting or invesmtent banking.
+
+In some places, mentorship was available, but it costed as much as $2200 USD for a single session, which is out of reach for most students.
+
+## The Solution
+
+Our CEO [Ammar Khan](https://www.linkedin.com/in/ammarskhan/) came up with the idea to create a platform that connects students with the right resources. Being a student in finance himself, he understood the pain points of students and wanted to create a solution that would help them.
+
+And so we set out to create what is starting out as a course platform, but will eventually become a full-fledged EdTech platform that provides students with every single possible resource they will need to succeed in their careers.
+
+...from scratch.
+
+## My Role
+
+Here is a high-level overview of the work I've done so far at KKC Classroom:
+
+<Columns>
+<Card title="Architecture" icon="building">
+    
+    I made architectural decisions for the entire platform, including the tech
+    stack, database schema, and API design. 
+    
+    To keep things simple since we are a
+    small team, we are using Next JS and Firebase (yes I did security rules!) to
+    build out the platform.
+
+    For security reasons, zero data is directly being fetched from Firebase from the client side.
+
+</Card>
+<Card title="Stripe" icon="credit-card">
+    I integrated the Stripe API to enable subscription payments for our courses -- everything from setting up the payment flow to manually testing out the feature.
+
+    Turns out, [this guide](https://github.com/t3dotgg/stripe-recommendations) is really helpful for setting up Stripe. Apparently, Stripe allows subscribers to buy the same subscription twice, and the last thing we need is angry customers.
+
+</Card>
+<Card title="TypeScript Migration" icon="code">
+    I migrated the entire codebase to TypeScript, which helped us catch bugs early and made the code much easier to maintain. This move reduced potential pre-deployment issues and improved developer productivity across the team.
+</Card>
+<Card title="Data Layer & CI/CD" icon="server">
+    I refactored our data fetching logic into a dedicated Data Access Layer (DAL) for better separation of concerns. I also set up CI/CD pipelines on GitHub for our main, staging, and dev branches, so every push automatically runs tests and deploys the latest code.
+</Card>
+</Columns>

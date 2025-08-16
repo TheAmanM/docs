@@ -48,7 +48,16 @@
       },
       {
         "group": "Routes",
-        "pages": ["inspiration", "experiences", "blog", "contact"]
+        "pages": [
+          "inspiration",
+          {
+            "group": "Experiences",
+            "icon": "briefcase",
+            "pages": ["experiences/kkc-classroom"]
+          },
+          "blog",
+          "contact"
+        ]
       }
     ],
 
@@ -56,7 +65,7 @@
       "anchors": [
         {
           "anchor": "Resume",
-          "href": "https://docs.amanmeherally.com/resume/AmanMeherally.pdf",
+          "href": "https://amanmeherally.com/resume/AmanMeherally.pdf",
           "icon": "file"
         },
         {
