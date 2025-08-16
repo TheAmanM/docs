@@ -25,8 +25,7 @@
   },
   "integrations": {
     "posthog": {
-      "apiKey": "phc_SBqUmXcK0Ra7Q0pzQuvpZWRrhncvoPCjoEhPg5Yxo1v",
-      "apiHost": "https://amanmeherally.com/event"
+      "apiKey": "phc_SBqUmXcK0Ra7Q0pzQuvpZWRrhncvoPCjoEhPg5Yxo1v"
     }
   },
   "colors": {
