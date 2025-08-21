@@ -25,7 +25,8 @@
   },
   "integrations": {
     "posthog": {
-      "apiKey": "phc_SBqUmXcK0Ra7Q0pzQuvpZWRrhncvoPCjoEhPg5Yxo1v"
+      "apiKey": "phc_SBqUmXcK0Ra7Q0pzQuvpZWRrhncvoPCjoEhPg5Yxo1v",
+      "apiHost": "https://api.amanmeherally.com/p"
     }
   },
   "colors": {
