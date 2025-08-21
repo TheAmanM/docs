@@ -71,7 +71,7 @@
       "anchors": [
         {
           "anchor": "Resume",
-          "href": "https://amanmeherally.com/resume",
+          "href": "https://api.amanmeherally.com/resume",
           "icon": "file"
         },
         {
