@@ -7,33 +7,40 @@ icon: "envelope"
 
 Ready to build something together? Let's connect!
 
-<Columns cols={2}>
-  <div className="mb-4">
-    <label className="block mb-2">Name</label>
-    <input className="rounded-xl bg-[--background-dark] border-2 outline-none border-[#252527] px-3.5 py-1 w-full focus-visible:border-white focus-:border-none" />
-  </div>
-  <div className="mb-4">
-    <label className="block mb-2">Email</label>
-    <input
-      type="email"
-      autoComplete="email"
-      className="rounded-xl bg-[--background-dark] border-2 outline-none border-[#252527] px-3.5 py-1 w-full focus-visible:border-white focus-:border-none"
-    />
-  </div>
-</Columns>
+<form id="contact-form" action="https://formspree.io/f/xandwkow" method="POST">
+  <Columns cols={2}>
+    <div className="mb-4">
+      <label className="block mb-2">Name</label>
+      <input 
+        name="name" 
+        className="rounded-xl bg-[--background-dark] border-2 outline-none border-[#252527] px-3.5 py-1 w-full focus-visible:border-white" 
+      />
+    </div>
+    <div className="mb-4">
+      <label className="block mb-2">Email</label>
+      <input
+        name="email"
+        type="email"
+        autoComplete="email"
+        className="rounded-xl bg-[--background-dark] border-2 outline-none border-[#252527] px-3.5 py-1 w-full focus-visible:border-white"
+      />
+    </div>
+  </Columns>
 
 <div className="mb-4">
   <label className="block mb-2">Message</label>
-  <div>
-    <div
-      className="custom-textarea rounded-xl bg-[--background-dark] border-2 outline-none border-[#252527] px-3.5 py-2 w-full focus-visible:border-white leading-normal min-h-[24ch] overflow-y-auto cursor-text whitespace-pre-wrap"
-      contenteditable="true"
-      role="textbox"
-      aria-multiline="true"
-    ></div>
-  </div>
+  <div
+    id="message-placeholder"
+    className="custom-textarea rounded-xl bg-[--background-dark] border-2 outline-none border-[#252527] px-3.5 py-2 w-full leading-normal min-h-[24ch] cursor-text whitespace-pre-wrap"
+  ></div>
 </div>
 
-<button className="bg-white hover:bg-white/90 transition-colors px-5 py-2 mt-2 text-black rounded-xl">
-  Send
-</button>
+  <button 
+    type="submit"
+    className="bg-white hover:bg-white/90 transition-colors px-5 py-2 mt-2 text-black rounded-xl"
+  >
+    Send
+  </button>
+  
+  <p id="form-status" className="mt-4 h-6"></p>
+</form>
