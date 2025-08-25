@@ -1,7 +1,7 @@
 # Portfolio
 
 <a href="https://amanmeherally.com" target="_blank">
-  <img src="https://github.com/TheAmanM/docs/blob/main/images/og-image.png?raw=true" alt="Descriptive alt text for your hero image" width="100%">
+  <img src="https://github.com/TheAmanM/docs/blob/main/images/og-image.png?raw=true" alt="Descriptive alt text for your hero image" width="100%" />
 </a>
 
 <div align="center">
