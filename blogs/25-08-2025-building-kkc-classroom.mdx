@@ -1,5 +1,6 @@
 ---
 title: "Building KKC Classroom"
+description: "25th August, 2025"
 ---
 
 <img
@@ -8,7 +9,7 @@ title: "Building KKC Classroom"
   className="rounded-xl"
 />
 
-There's a significantly noticeable difference in being a developer on the team, and being the development team. Especially when you're the CTO and you're just starting out — you're responsible for everything from making architectural decisions to fixing the styling of the submit buttons.
+There's a significantly noticeable difference in being a developer on the team, and being the development team. Especially when you're the CTO and you're just starting out — you're responsible for everything from making architectural decisions to fixing the styling of the submit buttons. Now, I'm lucky we have some help, but it's still a lot of work.
 
 As of writing this blog, it is currently the 22nd of August, and I have till the month ends to scrap a super basic version of the app together, making sure design and safety are fully prioritised.
 
@@ -19,3 +20,30 @@ For context, my co-founder [Ammar Khan](https://www.linkedin.com/in/ammarskhan/)
 At this stage, I have a data access layer and a working authentication hook + middleware support (both of which I need to migrate from Firebase to Auth.js and Prisma for obvious reasons).
 
 Wish me luck!
+
+## Day 1-2
+
+Auth is hard. Don't get me wrong, I love Auth.js. Putting it simple, OAuth integration is smooth, email credentials suck.
+
+<img
+  src="./25-08-2025-code-1.png"
+  alt="My Auth.js configuration before credentials."
+  className="rounded-xl"
+/>
+<p className="-mt-6 italic">Auth.js config before email credentials.</p>
+
+There are a couple of bugs still left to figure out, but I know I'm close. I'm determined to make this work. Since this is my first time using Auth.js, I can't really expect the same speed of development as I would with Supabase or Firebase, but I know that once I get the hang of it, it'll be smooth sailing.
+
+Fortunately, even though the team is new, they're talented, which means I was able to put this beauty together.
+
+<img
+  src="./25-08-2025-screenshot.png"
+  alt="Screenshot of the login page"
+  className="rounded-xl"
+/>
+
+Plan for the next couple of days is to get the authentication working, and then move on to the data access layer.
+
+- Prisma: Added
+- Schemas: working
+- Migrations: Done
