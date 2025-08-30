@@ -19,3 +19,7 @@ footer {
   /* Removing the search bar */
   display: none !important;
 }
+
+header > div:nth-child(2) {
+  display: none !important;
+}
