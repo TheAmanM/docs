@@ -51,7 +51,11 @@ Bear in mind, Next JS comes with a solution built into this, and the brilliant e
 
 If you're unfamiliar with HTTP rewrites, the idea is to route the request to your own server instead of to the chosen destination, and the server "silently forwards" it like a middleman. The pro is that on Next JS, it's on your own domain which doesn't flag anything. The con is your server handles the compute.
 
-So I pulled up my trusty AI agent, and discovered after a good twenty minutes that there simply was no solution. Despite Mintlify compiling to Next JS, it was clear that they hadn't exposed any way to re-write Posthog requests. Which sucked.
+Despite Mintlify compiling to Next JS, it was clear that they hadn't exposed any way to re-write Posthog requests. Which sucked.
+
+So I pulled up my trusty AI agent, and discovered after a good twenty minutes that there simply was no solution.
+
+Bummer. 
 
 But you could change the URL. In fact, the SDK let's you set exactly two values.
 
@@ -61,7 +65,7 @@ But you could change the URL. In fact, the SDK let's you set exactly two values.
   className="rounded-xl"
 />
 
-And once I realized this, the game was simple. I deployed an Express server to api.amanmeherally.com, set up an HTTP proxy middleware object on a router, and the rest was history.
+And once I realized this, the game was simple. I deployed an Express server to [api.amanmeherally.com](https://api.amanmeherally.com), set up an HTTP proxy middleware object on a router, and the rest was history.
 
 <img
   src="./30-08-2025-express-proxy.png"
