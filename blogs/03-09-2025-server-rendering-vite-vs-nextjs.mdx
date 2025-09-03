@@ -1,0 +1,190 @@
+---
+title: "Server Rendering: Vite vs Next JS"
+description: "It's no secret that Next.js is a beast. With five different rendering strategies, it can feel like a labyrinth. This post is your map. We're going to..."
+"og:image": "http://amanmeherally.com/blogs/03-09-2025-hero.png"
+---
+
+<p className="-mt-8 lg:-mt-6">3rd September, 2025</p>
+
+<img
+  src="/blogs/03-09-2025-hero.png"
+  alt="Server Rendering hero"
+  className="rounded-xl"
+/>
+
+<Note>
+**The History between Vite and Next JS**
+
+Medieval royal scribes and court philosophers would fiercely debate the
+kingdom's representation. Some favored Vite, sending swift instructions for provinces to build themselves. Others insisted on Next JS, delivering the kingdom's majesty fully-formed from the royal workshop.
+
+Whether the kingdom chose Vite or Next JS is unknown to this day.
+
+</Note>
+
+It's no secret that Next.js is a beast. With five different rendering strategies, it can feel like a labyrinth. This post is your map. We're going to cut through the noise and get to the heart of the problem that Next.js solves against somehing like Vite.
+
+## Vite: Server Who?
+
+If you're coming from the land of Vite, this whole server thing probably feels like overkill. And why wouldn't it? Vite is slick, fast, and works entirely on the client. It bundles your beautiful React project into a neat `index.html` file with a `div` and a `<script>` tag. That script tag sends down a JavaScript bundle.
+
+Here's the key: **that bundle is a set of instructions**. It tells the client's browser how to build the page from scratch.
+
+But there's a catch. Let's say we're trying to load a user dashboard at `https://example.com/dashboard`. You open your network tab and you see a waterfall of requests that looks something like this.
+
+<Steps>
+  <Step title="The Empty Shell">
+    The client asks the server for the page. The server, knowing nothing, sends
+    back a completely empty HTML file. It's a blank canvas with a single
+    instruction: "go fetch this giant JavaScript file."
+
+    ```html
+    <!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vite + React</title>
+      </head>
+      <body>
+        <div id="root"></div>
+
+        <!-- This turns into pure JS -->
+        <script type="module" src="/src/main.jsx"></script>
+      </body>
+    </html>
+    ```
+
+  </Step>
+  <Step title="The Instruction Manual">
+    The browser sees the script tag and dutifully fetches the JavaScript bundle.
+    It then has to parse and execute all of it. Buried in those instructions is
+    another one: "now that you're running, make an authenticated request to our
+    API to get the dashboard data."
+  </Step>
+  <Step title="The Actual Data">
+    Finally, the browser makes a <em>third</em> request to fetch the metrics it
+    needs to actually render the dashboard. Only after this request completes
+    can it show the user the page they asked for in the first place.
+  </Step>
+</Steps>
+
+See the problem? We went through **three** round trips just to get the page loaded. All of this could have been avoided if the server had just sent the right HTML in the first place.
+
+Instead of sending a box of parts (JavaScript) and an instruction manual, what if the server built the page itself and sent the finished product (HTML) directly to the browser? The browser wouldn't have to build anything; it would just have to display it.
+
+---
+
+## Next JS
+
+This is **server rendering**, and it’s the core principle that makes Next.js so powerful.
+
+<Tip>
+  **The Big Idea** <br /> <br />
+  Shift the rendering work from the client's browser to your own powerful server.
+  The client gets a fully-formed page, not a to-do list.
+</Tip>
+
+With that said, Next JS allows you to determine the line "past which" your components start getting rendered on the client. Before this line, everything gets rendered on the server.
+
+This is called the network boundary. Drawing this line gives us two advantages over Vite, which is fully client rendered.
+
+<Columns>
+<Card title="Client Rendering" img="/blogs/03-09-2025-client-rendering.jpeg">
+<ul className="list-disc pl-6">
+  <li>
+    Components handling sensitive data or secret API keys should run on the
+    server to keep credentials secure.
+  </li>
+  <li>
+    Essential data for the first view of a page should be server-rendered for
+    fast loading and better SEO.
+  </li>
+  <li>
+    Computationally expensive tasks like data processing or file generation are
+    best done on the server.
+  </li>
+</ul>
+
+</Card>
+<Card title="Server Rendering" img="/blogs/03-09-2025-server-rendering.jpeg">
+<ul className="list-disc pl-6">
+  <li>
+    Components needing complex state management and immediate user feedback
+    should run on the client.
+  </li>
+  <li>
+    Components using browser-only features like geolocation, WebSockets, or
+    local storage must be client components.
+  </li>
+  <li>
+    Components requiring access to device hardware, such as camera, microphone,
+    or GPU, must run on the client.
+  </li>
+</ul>
+
+</Card>
+</Columns>
+
+---
+
+## Not Just Pre-Built, Custom-Built
+
+This is where the magic lies. The server doesn't just send a single, static HTML file to every user. That wouldn't work for a dynamic page like a user dashboard.
+
+With Next.js, the server can run code **for every single request**. This is **dynamic rendering**. When a request comes in for `/dashboard`, the Next.js server can figure out who the user is, fetch _their_ specific data, and generate a custom HTML page just for them, on the fly.
+
+This dynamic rendering can take place based on any request header. The `Authorization` token can be used to help the server identify you, or the `X-Forwarded-For` header can be used to determine whether you should be shown the webpage in a different language.
+
+Here's what it looks like.
+
+```javascript
+// app/dashboard/page.js
+
+// This entire function runs ON THE SERVER for each request.
+export default async function DashboardPage() {
+  // 1. The server authenticates the user
+  const user = await getLoggedInUser();
+
+  // 2. The server fetches their specific data
+  const metrics = await fetchMetricsForUser(user.id);
+
+  // 3. The server uses the data to generate the HTML
+  return (
+    <main>
+      <h1>Welcome back, {user.name}</h1>
+      <Dashboard data={metrics} />
+    </main>
+  );
+}
+```
+
+The client just gets the final result. No JavaScript bundles to parse, no extra API calls to wait for. Just a complete page, ready to go.
+
+---
+
+## Diving Deeper
+
+With a framework that gives you this much control, there are a lot of features that Next JS comes with.
+
+### Page level SEO
+
+Next.js makes SEO easy by letting you render pages on the server, so search engines can see the full content right away. You can also set custom meta tags for each page, like titles and descriptions, which helps your site show up better in search results. With server rendering, crawlers get the complete HTML, making your pages more discoverable.
+
+### API Routes
+
+The `api` folder in Next.js lets you create server-side endpoints right inside your project. Any file you add to the `app/api` directory automatically becomes an API route, and you can write backend logic using JavaScript or TypeScript. These routes run on the server, so you can securely handle requests, connect to databases, or process form submissions without exposing sensitive code to the client.
+
+<Note>
+**Fun fact**
+
+If you deploy your Next.js app on Vercel (the company behind Next.js), your API routes can run on a variety of serverless environments—not just Node.js, but also PHP, Go, Python, and more!
+
+</Note>
+
+---
+
+Next.js isn't complex for the sake of it. It's a tool built to solve the very real performance, SEO, and user experience problems that arise from making the client do all the heavy lifting. It’s about changing _where_ and _when_ your application does its work.
+
+It's the difference between sending someone a toolkit and delivering a finished product. And once you grasp that, the game is simple.
