@@ -2,6 +2,9 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "Aman Meherally",
+  "appearance": {
+    "default": "dark"
+  },
   "seo": {
     "metatags": {
       "keywords": "Aman Meherally, Full Stack Developer, Web Development, Software Engineer, Portfolio",
